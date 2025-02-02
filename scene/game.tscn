@@ -188,3 +188,8 @@ position = Vector2(91, -110)
 
 [node name="platform" parent="." instance=ExtResource("5_hckou")]
 position = Vector2(-98, -51)
+
+[node name="TileMap2" type="TileMap" parent="."]
+format = 2
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="TileMap2"]
