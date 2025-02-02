@@ -193,8 +193,6 @@ position = Vector2(-98, -51)
 [node name="TileMap2" type="TileMap" parent="."]
 format = 2
 
-[node name="CPUParticles3D" type="CPUParticles3D" parent="TileMap2"]
-
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 
 [node name="Icon" type="Sprite2D" parent="."]
