@@ -365,5 +365,5 @@ animation = &"jump"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-58, -16)
+position = Vector2(-59, -15)
 shape = SubResource("CapsuleShape2D_pocwi")

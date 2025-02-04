@@ -188,7 +188,7 @@ _data = {
 position = Vector2(-398, -18)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-297, -49)
+position = Vector2(-374, -39)
 zoom = Vector2(3, 3)
 
 [node name="TileMap" type="TileMap" parent="."]

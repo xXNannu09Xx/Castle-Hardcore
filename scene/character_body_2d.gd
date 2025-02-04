@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 @export var speed := 100  # Reduce speed for better control
 @export var acceleration := 500
-@export var friction := 700
+@export var friction := 400
 @export var jump_force := -300
 @export var gravity := 500
 
@@ -28,5 +28,7 @@ func _physics_process(delta):
 	# Jumping
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_force
-
+		sprite.play("jump")
+ 		 
+ 	
 	move_and_slide()
