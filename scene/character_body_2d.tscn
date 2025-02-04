@@ -318,7 +318,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump",
-"speed": 25.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -363,7 +363,8 @@ scale = Vector2(1.01618, 0.908854)
 sprite_frames = SubResource("SpriteFrames_ytty7")
 animation = &"jump"
 autoplay = "idle"
+frame_progress = 0.266192
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-58, -16)
+position = Vector2(-43, -8)
 shape = SubResource("CapsuleShape2D_pocwi")

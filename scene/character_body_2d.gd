@@ -28,6 +28,7 @@ func _physics_process(delta):
 	# Jumping
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_force
+	elif Input.is_key_pressed(KEY_SHIFT):
 		sprite.play("jump")
  		 
  	
