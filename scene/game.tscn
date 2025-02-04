@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://6d0h0p15nx0x"]
+[gd_scene load_steps=15 format=3 uid="uid://6d0h0p15nx0x"]
 
 [ext_resource type="Texture2D" uid="uid://dmwf18ltq42ra" path="res://assets/brackeys_platformer_assets/sprites/platforms.png" id="2_xw5h0"]
 [ext_resource type="Texture2D" uid="uid://o0udbpla0yea" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="3_ymg26"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dvclmjq6kt1c3" path="res://assets/handmade/pixil-frame-0 (8).png" id="4_pb1cw"]
 [ext_resource type="PackedScene" uid="uid://clmfafvgxfd5t" path="res://scene/platform .tscn" id="5_hckou"]
 [ext_resource type="PackedScene" uid="uid://ce2mebnsaxsrf" path="res://scene/character_body_2d.tscn" id="6_6gkk4"]
+[ext_resource type="PackedScene" uid="uid://pgbx4g7r1k6w" path="res://scene/spiketrap.tscn" id="7_sa5hd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wjofc"]
 texture = ExtResource("2_xw5h0")
@@ -169,13 +170,25 @@ sources/0 = SubResource("TileSetAtlasSource_wjofc")
 sources/1 = SubResource("TileSetAtlasSource_hcvjw")
 sources/2 = SubResource("TileSetAtlasSource_05f4g")
 
+[sub_resource type="Animation" id="Animation_hjray"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_ldath"]
+resource_name = "spikeupward"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_te1ob"]
+_data = {
+"RESET": SubResource("Animation_hjray"),
+"spikeupward": SubResource("Animation_ldath")
+}
+
 [node name="game" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("6_6gkk4")]
 position = Vector2(-398, -18)
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(-41, -15)
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-297, -49)
 zoom = Vector2(3, 3)
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -187,14 +200,15 @@ layer_0/tile_data = PackedInt32Array(65534, 2, 0, 65533, 2, 0, 65532, 2, 0, 1310
 [node name="coin1" parent="." instance=ExtResource("4_e503p")]
 position = Vector2(-72, -24)
 
-[node name="coin2" parent="." instance=ExtResource("4_e503p")]
-visible = false
-position = Vector2(149, -27)
-
-[node name="coin3" parent="." instance=ExtResource("4_e503p")]
-position = Vector2(91, -110)
-
 [node name="platform" parent="." instance=ExtResource("5_hckou")]
 position = Vector2(-153, -97)
+
+[node name="spiketrap" parent="." instance=ExtResource("7_sa5hd")]
+position = Vector2(-110, -37)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="spiketrap"]
+libraries = {
+"": SubResource("AnimationLibrary_te1ob")
+}
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]

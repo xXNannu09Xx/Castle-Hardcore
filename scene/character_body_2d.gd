@@ -1,25 +1,32 @@
 extends CharacterBody2D
 
+@onready var sprite = $AnimatedSprite2D
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+@export var speed := 100  # Reduce speed for better control
+@export var acceleration := 500
+@export var friction := 700
+@export var jump_force := -300
+@export var gravity := 500
 
-
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
+func _physics_process(delta):
+	# Apply gravity
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity.y += gravity * delta
 
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	# Get movement input
+	var direction = Input.get_axis("move_left", "move_right")
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
+	# Smooth movement
+	if direction != 0:
+		velocity.x = move_toward(velocity.x, direction * speed, acceleration * delta)
+		sprite.play("run")
+		sprite.flip_h = (direction < 0)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, friction * delta)
+		sprite.play("idle")
+
+	# Jumping
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = jump_force
 
 	move_and_slide()

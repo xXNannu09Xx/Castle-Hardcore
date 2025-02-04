@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://pgbx4g7r1k6w"]
+
+[ext_resource type="Texture2D" uid="uid://yrpepxn2djs4" path="res://assets/handmade/spike2.png" id="1_66udy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ceaje"]
+size = Vector2(28, 30)
+
+[node name="spiketrap" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3, 3.5)
+scale = Vector2(0.8125, 0.78125)
+texture = ExtResource("1_66udy")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-3, 5)
+shape = SubResource("RectangleShape2D_ceaje")
