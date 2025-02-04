@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var acceleration := 500
 @export var friction := 400
 @export var jump_force := -200
-@export var gravity := 2000
+@export var gravity := 500
 
 func _physics_process(delta):
 	# Apply gravity
@@ -22,19 +22,18 @@ func _physics_process(delta):
 		sprite.play("run")
 		sprite.flip_h = (direction < 0)
 	
+	elif Input.is_key_pressed(KEY_SPACE):  
+		sprite.play("jump")
 	else:
 		velocity.x = move_toward(velocity.x, 0, friction * delta)
 		sprite.play("idle")
+	
+	
 
 	
 	move_and_slide()
 	
-func jump():
-	if not sprite.is_playing():
-		sprite.play("jump")
-		
-func _input(event):
-	velocity.y = jump_force
-	if event.is_action_pressed("jump") && Input.is_key_pressed(KEY_SPACE):
-		jump()
-		
+
+
+
+ 
