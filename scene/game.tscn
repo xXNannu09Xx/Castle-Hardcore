@@ -185,7 +185,7 @@ _data = {
 [node name="game" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("6_6gkk4")]
-position = Vector2(-377, -18)
+position = Vector2(-316, -18)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-374, -39)

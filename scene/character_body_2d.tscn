@@ -1564,5 +1564,5 @@ autoplay = "idle"
 frame_progress = 0.775743
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-59, -16)
+position = Vector2(-108, -17)
 shape = SubResource("CapsuleShape2D_pocwi")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxw1p20tjld36"]
+
+[ext_resource type="Texture2D" uid="uid://dvclmjq6kt1c3" path="res://assets/handmade/pixil-frame-0 (8).png" id="1_dk2ow"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6yl5"]
+
+[node name="rigidbody2d" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_dk2ow")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_r6yl5")
